@@ -124,3 +124,13 @@ Enjoy (Not in Vocabulary)
 env\scripts\activate.bat 
 uv pip install -r requirements.txt
 
+
+git add.
+
+git commit -m "code change 0406 "
+
+git push 
+
+
+
+completed till 1:15: minutes;
