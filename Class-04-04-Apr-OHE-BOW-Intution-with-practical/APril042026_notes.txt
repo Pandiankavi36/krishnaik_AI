@@ -1,0 +1,126 @@
+uv python list 
+
+uv python install 3.11.15
+
+
+ uv venv env --python cpython-3.11.15-windows-x86_64-none
+
+--to create environment
+env\Scripts\activate
+
+ D:\krishnaik_AI\FULL-STACK-GENAI-BOOTCAMP-1.0> env\Scripts\activate
+uv pip install -r requirements.txt
+
+
+
+Encoding nad Embdedding:
+
+
+Encoding: 
+
+ONE HOT Encoding  (WOrd Presesnce) - is ths word present or not?   0 & 1  data 
+Bag of words (word count) - How many times does this word appear? (NLP) 
+
+TF-IDF(count + importance weighting) - How important is this word in this document?
+TF-IDF (Term Frequency-Inverse Document Frequency) is a numerical statistic that reflects how important a word is to a document within a collection (corpus). 
+It reduces the weight of common words and increases the weight of more informative words.
+==================================================
+
+Embeddings( Semantic + Contextual understanding)--> What is the meaning of the text in context(word, sentence, paragraph, corpus)
+
+word2vec -- transformed bench model
+
+====================================
+Vector is a collection of numbers 
+ONE HOT Encoding  (WOrd Presesnce) - is ths word present or not?   0 & 1  data 
+
+D1 -> people watch movie
+D2 -> people watch cricket
+D3 -> people like movie
+D4 -> people like cricket
+
+we need to convert this data into ONE HOT Encoded Vector(collection of numbers)
+
+We need to generate vocabulary of words.( Unique words from the data). The dimension of vector is 5.  If the vocabulary size is 10 then vector dimension is 10
+
+Step1: Generate vocabulary from words. 
+vocabulary  : {people watch, like, movie, cricket}
+      people  watch,  like,  movie, cricket( Features/Dimension)
+D1 ->  1	1	0	1	0
+D2 ->  1	1	0	0	1
+D3 ->  1	0	1	1	0
+D4 ->  1	0	1	0	1
+
+how vector is going to represent it in ONE HOT Encoding
+ONE HOT Encoding  Document-level representation of data.
+
+D1 -> people watch movie[1,1,0,1,0]
+D2 -> people watch cricket[1,1,0,0,1]
+D3 -> people like movie[1,0,1,1,0]
+D4 -> people like cricket[1,0,1,0,1]
+
+it used in  logistic and naive based model 
+
+text classification  - algorithm. 
+
+In Deep Learning  _- NLP(Natural Language processing) OHE used .
+RNN /LSTM/GRU/E&D/ Attention
+Recurral Neural network  - RNN
+
+================
+
+ Word-level(sequence) representation of data.  
+
+vocabulary  : {people watch, like, movie, cricket}
+
+  Vocabulary :{cricket, like ,movie, people watch } in Alphabetical order in real project.
+
+D1 -> people watch movie [1,1,0,1,0]
+
+[[1,0,0,0,0]
+[0,1,0,0,0]
+[0,0,1,0,0]]
+dimension is goint to be Row * column
+3 _rows 5 - columns
+Dimension: 3 * 5
+
+
+D2 -> people watch cricket
+[[1,0,0,0,0]
+[0,1,0,0,0]
+[0,0,0,0,1]]
+D3 -> people like movie
+[[1,0,0,0,0]
+[0,0,1,0,0]
+[0,0,0,1,0]]
+D4 -> people like cricket
+[[1,0,0,0,0]
+[0,0,`1,0,0]
+[0,0,0,0,1]]
+
+
+Pros:
+Easy to implement
+Simple Binary representation
+No training required
+Direct Mapping
+
+Cons:
+
+Sparse Matrix Mostly Zeros  - Momory waste
+SParse Matrix means huge vector size but very little useful information
+vocabulary size = 10,000 words
+D1 -> people watch movie
+[1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,upto 10000]
+
+High Dimensionality Vocabulary increase - Vector size increase
+No Semantic understanding Similar words also seems unrelated
+OOV(out of vocabulary  Problem could not handle new words.
+
+D5 -> people Enjoy movie
+People( known)
+movie( known)
+Enjoy (Not in Vocabulary)
+env\scripts\activate.bat 
+uv pip install -r requirements.txt
+
