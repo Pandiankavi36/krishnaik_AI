@@ -1,0 +1,149 @@
+word2vec - Training model 
+
+SOTA -> transformer -> Partical  
+
+Transformer  -LLM  -Langa
+
+MMLM  -> Image to Text / Text to Image
+
+=============================================================================================================================================
+
+word2vec - Training model  is a Neural network   2013 used by google.
+
+I love indi i love my home i love rain   -- Text/Natuaral language , unstructured data, using supervisor model we are converting into Structuered data x, y
+
+
+Word2Vec -> Neural Network -> Mathematical MOdel  supervised learning  x(input) /Y (Output) 
+
+Window size:
+
+
+How many neighbours we going to consider surround the word
+
+
+I love deep Learning
+https://docs.google.com/forms/d/e/1FAIpQLSdDnOZPorHk_bHSkQbs9h0lZ1JNErdMXNTBPgns6HHBLfLy9w/viewform
+
+window size is hyper parameter those parameter can't decide directly it comes from experiment. 
+
+window size  =1  consider LEft, right 
+
+context (I/P)  	Target(O/P) 
+
+LOVE		   I
+I , Deep	Love
+love, learning	Deep	
+Deep 		Learning 
+ 				 
+==============================================================================
+I love deep Learning
+window size  =2 (getting two words from left and right)
+
+context (I/P)  		Target(O/P) 
+
+LOVE, deep		 	  I
+I , Deep, Learning		Love
+I, love, learning		Deep	
+love, Deep			Learning 
+
+========================================================================
+
+window size is hyper parameter those parameter can't decide directly it comes from experiment. 
+
+If the widow size is going to increase the context(Noise-too length context)  would increase ..
+
+Year 2013, google introduced word2vec model and it has two model
+1)CBOW
+2) SKIPGRAM 
+
+
+word2vec have 2 model (introduced by Google)- train the model using Neural Network model ( Prepare the data )
+
+1) CBOW Model(Continuous bag of word)
+2) Skip-Gram model
+
+we can differentiate two models based on the data preparation .
+
+Follow Sunny for Gen AI    ---------using CBOW model 
+
+window size =1 
+
+context 		Target
+(i/P)				(O/P)	
+Sunny				Follow
+Follow	, for			sunny
+Sunny, Gen			for 
+for , AI			Gen
+Gen 				AI
+
+SKIp Gram model ( its reverse model , target will be context, and context will be target) 
+
+
+window size =1 
+
+context 		Target
+(i/P)			(O/P)	
+Follow			Sunny
+Sunny			Follow	, for	
+for 			Sunny, Gen
+Gen			for , AI
+AI			Gen 
+
+Step 1: Getting my data  Follow Sunny for Gen AI   
+
+Step 2: Vocabulary  {AL, Follow, for, Gen, Sunny} - is a collection of unique numbers
+
+ Step 3: ONE HOT Encoded Vector  [1,0,0,0,0]
+			[0,1,0,0,0]
+			[0,0,1,0,0]
+			[0,0,0,1,0]
+			[0,0,0,0,1]
+
+Follow Sunny for Gen AI 
+window size =1 
+
+SteP :4 getting x ad Y output data 
+
+context 
+(X count)				Target(Y count) 
+(i/P)				(O/P)	 
+
+Follow	, for			sunny
+Sunny, Gen			for 
+for , AI			Gen
+ 
+
+ 
+to convert word into vector 
+Google - Neural Network   _ how many hidden layer ? Just having 1 hidden layer 
+1 hidden layer with 3 Neursn
+
+now we are feeding data into Model:
+========================================
+
+Neural Network training 
+Follow	, for	 ==> sunny
+size of the matrix  ; 5* 3  ( Weights and Input) 
+3 - is hidden dimension (Hyper)
+
+
+Follow [0,1,0,0,0]		Hidden Layer (Embedding) (3 Neuron) 				Output (sunny) 
+
+
+5* 3 				3*5 						
+
+
+
+FOr [0,0,1,0,0]
+
+best possible weight 
+
+
+forward progpagtion 
+backward propogatoion  
+
+=============================================================================
+
+pip install gensim
+
+
