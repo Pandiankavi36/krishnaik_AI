@@ -147,3 +147,76 @@ backward propogatoion
 pip install gensim
 
 
+April 12 
+
+Weight Matrix 
+
+During training ,the model updates it weight  
+
+Neural Network - out of scope. we need to learn this 
+
+trained weight (Learned Weight)
+embedding - Intermediate Representation 
+
+Freeze model - Trained Model 
+
+
+
+===================================================================
+
+Preparing data for skip_ gram
+
+window size =1  hyper parameter - experiemental value 
+
+
+Follow sunny for Gen AI
+
+
+
+Input 				output 
+				Target
+context 	
+ 
+sunny				Follow , For
+for				sunny, Gen
+Gen				For , AI
+
+
+We represent this data like this also
+
+Context (INput)  Target(output)
+
+Sunny		Follow 
+sunny 		For
+for 		Sunny
+for 		Gen
+gen 		for
+gen		AI
+
+
+
+weight matrix try to find out best possible weights to freeze/train  the model.
+Loss = Pred - Actual
+weighted --> Random 
+
+Epoch - FP + BP to train the model. to find out the best possible weights with minimum loss.
+
+
+My Name is Sunny  AI is my fav subject
+
+Target Sunny
+
+window size =2 
+CBOW:
+
+name , is AI is  -- SUnny
+
+SKIPgram
+
+Context 		Target
+Sunny 			name, is , AI 
+
+
+
+
+
