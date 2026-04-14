@@ -1,0 +1,126 @@
+Encoding: 
+
+OHE - > 0 & 1 Presence of data or not
+BOW - > count based or frequency based 
+
+TF-IDF ==  Count of the word + Importance of the word. (TF * log(IDF) 
+
+Invented by Google before Neural Network 
+
+convert the data into number(Vector) 
+
+vocabulary = unique words/tokens in side the data or set of words 
+
+
+3) Method: TF-IDF ==  Count of the word + Importance of the word.
+
+TF-IDF  -- Term Frequency(TF) Inverse Document Frequency(IDF)
+
+D1-> People watch cricket
+D2 -> cricket watch cricket
+D3-> people give comment
+D4-> cricket give comment
+
+vocabulary =[people, watch, cricket, give , comment ]
+
+TF(word,D) = (occurrences of the word in the sentence) 
+		/ (Total words in the given sentence)
+
+TF(word,D) =  1/3
+ 
+
+IDF(word) = log(Total Number of sentence
+		/ Number of sentence containing the word)
+
+vocabulary =[Comment, cricket give people watch]
+	
+	Comment  	 cricket		give 		people 			watch
+D1->  	0		(1/3)*log(4/3)		0		1/3)*log(4/2)	(1/3)*log(4/2)
+D2 ->   0		(2/3)*log(4/3)		0		0		(1/3)*log(4/2)
+D3->  (1/3)*log(4/2)	0			(1/3)*log(4/2)	0		0
+D4->  (1/3)*log(4/2)	 (1/3)*log(4/3)		(1/3)*log(4/2)	0		0
+ 
+
+log(4/3) = 0.28768
+log(4/2) = log(2) = 0.69315
+
+
+	Comment  cricket	give 	people 	watch
+D1->  	0	0.096		0	0.231	0.231
+D2 ->   0	0.191		0	0	0.231
+D3->  0.231  	0		0.231 	0	0
+D4->  0.231	0.096	 	0.231	0	0
+
+
+Why TF(Term Freuqency)?
+
+Because More Occurrences = More importance in that document
+
+why IDF(Inverse document frequency) 
+Because Common words are not useful
+
+
+IDF = N/DF  without log
+
+Assume 
+Total document (N) = 1000
+Case 1: Rare word
+APpears in 1 document
+IDF = 1000/1 = 1000
+
+
+case 2: Medium word
+Appears in 10 documents
+ IDF = 1000/10 = 100
+
+case 3: Common word
+Appears in 500 documents
+ IDF = 1000/500 =2 
+
+problem :
+ values are too extreme 
+1000 vs 100 vs 2
+
+log basically compress the number
+ log(2) = 0.69
+
+Now values become 
+6.9 vs 4.6vs 0.69
+=============================================
+rate word dominates everything
+ Model becomes unstable with out log
+
+
+
+why multiply TF * IDF ?
+
+Because 
+TF - Importance in document
+IDF - Importance in corpus
+
+
+why log in IDF
+without log:
+Rare words get extremely high values
+
+
+Log: Smooths values
+Keeps balance
+
+
+Log reduces extreme differences while keeping the importance order intact
+Log compresses large values so rare words don't overpower everything.
+
+Final verdict:
+
+TF - Word importance in the given document
+IDF -  Checking word importance in entire data.
+
+
+
+
+
+pros:
+
+
+
