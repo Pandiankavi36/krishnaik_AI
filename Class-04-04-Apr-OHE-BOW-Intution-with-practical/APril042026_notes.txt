@@ -134,3 +134,57 @@ git push
 
 
 completed till 1:15: minutes;
+
+bag of words: Bag of words captures how frequently a word is used in a meaningful context. If a word repeats more in a sentence, BOW assume its more important.
+
+D1 -> people watch movie and watch movie again
+D2 -> people watch cricket and watch cricket
+D3 -> people like movie and like movie a lot
+D4 -> people like cricket
+
+vocabulary=['again','and','cricket','like','lot','movie','people','watch']
+
+vector = 8
+dimension -8
+Features -8
+
+	again and  cricket	like 	lot    movie  people   watch
+D1 -> 	1	1	0	0	0	2	1	2
+D2 ->	0	1	2	0	0	0	1	2
+D3->	0	1	0	2	1	2	1	0
+D4 ->	0	0	1	1	0	0	1	0
+
+
+bAG of words is simple and powerful for counting words
+but if fails to understand the meaning, order and context.
+
+
+DATA conert into ---> Number 
+	 OHE -->2012-2015	
+	--> BOW -- count 
+
+ML algorithm --> Naive Bayes
+		Deep learning Algorithm--> RNN/LSTM 
+
+
+
+People Watch cricket People
+
+Vocabulary:[People , Watch, Cricket]
+
+OHE vector: [1, 1,1]
+
+BOW: [2,1,1]
+
+completed till2:10: minutes;
+
+
+
+sklearn -> scikit Learn -> Machine learning 
+			(MOdel training/FE/evaluaton)
+
+validation :
+FIT() -taking the data and keeping the data (preparing data) then creating the vocabulary.
+Transform - applying some(actual logic on top of that. tranfrom documents t document term matrix.
+fit_tranform -  learn vocabulary and transform document matrix.
+Abstract_ some one written that code and we are using it.
