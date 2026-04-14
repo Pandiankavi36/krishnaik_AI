@@ -181,10 +181,102 @@ completed till2:10: minutes;
 
 
 sklearn -> scikit Learn -> Machine learning 
-			(MOdel training/FE/evaluaton)
+			(Model training/FE/evaluation)
 
 validation :
 FIT() -taking the data and keeping the data (preparing data) then creating the vocabulary.
-Transform - applying some(actual logic on top of that. tranfrom documents t document term matrix.
+Transform - applying some(actual logic on top of that. transform documents t document term matrix.
 fit_tranform -  learn vocabulary and transform document matrix.
 Abstract_ some one written that code and we are using it.
+
+
+Pros:
+-------------
+1) Easy to implement
+Very simple logic
+just count word occurrences
+No complex math required
+
+
+2) captures word frequency
+shows how often a word appears
+more occurrences - higher importance
+
+3) works well before embedding for classical NLP tasks
+useful for 
+Text classification
+Spam detection
+Sentiment analysis (basic level)
+
+4) NO training required
+No learning Phase
+Direct Conversion from text - numbers 
+========================================================
+CONS:
+
+1) Ignores word orders
+Sentence meaning can change, but BOW won't notice
+
+exmpale;
+"dog bites man"
+man bites dog
+Same BOW representation
+BOW vector { dog, bites, man}
+[1,1,1]
+[1,1,1,]same vector
+
+
+2) No Semantic understanding
+
+Similar words are treated completely different
+expl:
+like vs love
+ No relation captured
+3) High dimensionality
+
+vocabulary size = vector size  vocabulary - 50K the vector size = 50K 
+Large dataset => huge vectors
+
+4) Sparse Representation 
+Mostly values are 0
+Memory inefficient
+Computation waste
+
+5) OOV(out of Vocabulary) problem
+New words cannot be handled
+if word not in vocabulary - ignored or error 
+
+6) Overemphasized frequent words
+ Repeated words my dominate 
+Example; "movie movie  movie"    -- There is no meaning for this sentence 
+
+Gets high importance even if not meaningful
+
+
+
+
+
+3) Method: 
+
+TF-IDF  -- Term Frequency(TF) Inverse Document Frequency(IDF)
+
+D1-> People watch cricket
+D2 -> cricket watch cricket
+D3-> people give comment
+D4-> cricket give comment
+
+vocabulary =[people, watch, cricket, give , comment ]
+
+TF(word,D) = (occurences of the word in the sentence) / (Total words in the given sentence)
+
+TF(word,D) =  1/3
+D2 == 2/3
+D3 = 1/3
+4 == 3/3
+
+IDF(word) = log(Total Number of sentence/ Number of setence containing the word)
+
+
+							
+
+
